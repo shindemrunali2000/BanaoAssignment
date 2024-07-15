@@ -1,0 +1,29 @@
+<!-- <h2>{{ category.name }} Blog Posts</h2>
+<ul>
+    {% for post in blog_posts %}
+    <li>
+        <h3>{{ post.title }}</h3>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100px; height: auto;">
+        <p>{{ post.summary|truncatewords:15 }}...</p>
+        <a href="#">Read More</a>
+    </li>
+    {% endfor %}
+</ul> -->
+
+
+
+
+<!-- Example template: blog/templates/blog/blog_posts_by_category.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div id="root"></div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

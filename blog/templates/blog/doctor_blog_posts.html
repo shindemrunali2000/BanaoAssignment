@@ -1,0 +1,6 @@
+<h2>My Blog Posts</h2>
+<ul>
+    {% for post in blog_posts %}
+    <li>{{ post.title }} ({{ post.category }}) - {{ post.created_at }}</li>
+    {% endfor %}
+</ul>

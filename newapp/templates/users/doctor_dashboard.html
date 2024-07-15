@@ -1,0 +1,13 @@
+<h2>Dashboard</h2>
+<p>First Name: {{ profile.user.first_name }}</p>
+<p>Last Name: {{ profile.user.last_name }}</p>
+<p>Email: {{ profile.user.email }}</p>
+<p>Address: {{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</p>
+<p>User Type: {{ profile.user_type }}</p>
+
+<h2>My Blog Posts</h2>
+<ul>
+    {% for post in blog_posts %}
+    <li>{{ post.title }} ({{ post.category }}) - {{ post.created_at }}</li>
+    {% endfor %}
+</ul>
