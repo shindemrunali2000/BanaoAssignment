@@ -26,7 +26,8 @@ def dashboard(request):
         blog_posts = BlogPost.objects.filter(draft=False)
         return render(request, 'users/patient_dashboard.html', {'profile': profile, 'blog_posts': blog_posts})
     elif profile.user_type == 'Doctor':
-        blog_posts = BlogPost.objects.filter(draft=False)
+        # blog_posts = BlogPost.objects.filter(draft=True)
+        blog_posts = BlogPost.objects.all()
         return render(request, 'users/doctor_dashboard.html', {'profile': profile, 'blog_posts': blog_posts})
 
 def home_page(request):

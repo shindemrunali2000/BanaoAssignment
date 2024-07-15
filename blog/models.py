@@ -20,7 +20,7 @@ class BlogPost(models.Model):
     summary = models.TextField()
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    draft = models.BooleanField(default=False)
+    draft = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

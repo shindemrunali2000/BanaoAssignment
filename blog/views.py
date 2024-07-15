@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import BlogPostForm
 from .models import BlogPost, Category
@@ -36,11 +37,12 @@ def blog_posts_by_category(request, category_name):
     blog_posts = BlogPost.objects.filter(category=category_name, draft=False)
     return render(request, 'blog/blog_posts_by_category.html', {'category': category, 'blog_posts': blog_posts})
 
-from django.shortcuts import get_object_or_404
 
-def blog_detail(request, id):
-    post = get_object_or_404(BlogPost, id=id)
-    return render(request, 'blog_detail.html', {'post': post})
+def blog_detail(request, pk):
+    # post = get_object_or_404(BlogPost, id=id)
+    # return render(request, 'blog_detail.html', {'content':"content",'post': post})
+     post = get_object_or_404(BlogPost, pk=pk)
+     return render(request, 'blog/blog_detail.html', {'post': post})
 
 @login_required
 def patient_dashboard(request):
