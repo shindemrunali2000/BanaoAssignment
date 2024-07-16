@@ -3,6 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .form import UserRegisterForm
 from blog.models import BlogPost
+from blog.views import create_blog_post
 
 def register(request):
     if request.method == 'POST':
@@ -32,3 +33,6 @@ def dashboard(request):
 
 def home_page(request):
     return render(request, 'users/home_page.html')
+
+
+
