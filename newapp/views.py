@@ -3,7 +3,9 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .form import UserRegisterForm
 from blog.models import BlogPost
+from django.contrib.auth.models import User
 from blog.views import create_blog_post
+from appointment.views import doctor_list, book_appointment, appointment_detail
 
 def register(request):
     if request.method == 'POST':
@@ -24,8 +26,9 @@ def register(request):
 def dashboard(request):
     profile = request.user.profile
     if profile.user_type == 'Patient':
+        doctors = User.objects.filter(profile__user_type='doctor')
         blog_posts = BlogPost.objects.filter(draft=False)
-        return render(request, 'users/patient_dashboard.html', {'profile': profile, 'blog_posts': blog_posts})
+        return render(request, 'users/patient_dashboard.html', {'profile': profile, 'blog_posts': blog_posts, 'doctors': doctors})
     elif profile.user_type == 'Doctor':
         # blog_posts = BlogPost.objects.filter(draft=True)
         blog_posts = BlogPost.objects.all()

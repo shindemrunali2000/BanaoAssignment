@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'appointment',
     'newapp',
     'blog',
     'rest_framework',
@@ -120,7 +121,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+DATE_INPUT_FORMATS = ['%Y-%m-%d']  # Example: '2023-07-22'
+TIME_INPUT_FORMATS = ['%H:%M'] 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
